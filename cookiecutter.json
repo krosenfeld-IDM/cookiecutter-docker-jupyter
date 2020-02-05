@@ -1,0 +1,17 @@
+{
+    "project_name": "project_name",
+    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "author_name": "Your name (or your organization/company/team)",
+    "jupyter_port": "8888",
+    "jupyter_notebook": [
+      "jupyter/minimal-notebook",
+      "jupyter/scipy-notebook",
+      "jupyter/r-notebook",
+      "jupyter/datascience-notebook",
+      "jupyter/tensorflow-notebook",
+      "jupyter/pyspark-notebook"
+    ],
+    "uses_r": "{% if 'r-' in cookiecutter.jupyter_notebook or 'datascience' in cookiecutter.jupyter_notebook %}y{% else %}n{% endif %}",
+    "uses_python": "{% if 'scipy-' in cookiecutter.jupyter_notebook or 'datascience' in cookiecutter.jupyter_notebook %}y{% else %}n{% endif %}",
+    "python_index_url": "None"
+}

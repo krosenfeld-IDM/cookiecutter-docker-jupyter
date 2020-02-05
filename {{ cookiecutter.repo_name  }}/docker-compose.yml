@@ -1,0 +1,20 @@
+version: '2.3'
+services:
+  # This is the list of services and containers that make our application
+  # for more Data Science projects, you will probably have one container
+  notebook:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: {{cookiecutter.jupyter_notebook}}
+    command: start-notebook.sh --NotebookApp.password='sha1:d3425fef85a2:b958281342f59ca4f7571c7a01c62ea70576456d'
+    environment: # see https://jupyter-docker-stacks.readthedocs.io/en/latest/using/common.html for options
+      - "GRANT_SUDO=yes"
+      # Change the default UID. needed on linux for file permissions
+      #- "NB_UID=${NB_UID}"
+      #- "NB_GID=${NB_GID}"
+    ports:
+      - "{{ cookiecutter.jupyter_port }}:8888"
+    volumes:
+      - .:/home/jovyan/work
+    user: root
