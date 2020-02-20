@@ -12,8 +12,8 @@ services:
       - "GRANT_SUDO=yes"
       - "JUPYTER_ENABLE_LAB=yes"
       # Change the default UID. needed on linux for file permissions
-      - "NB_UID=${NB_UID:1000}"
-      - "NB_GID=${NB_GID:100}"
+      - "NB_UID=${NB_UID:-1000}"
+      - "NB_GID=${NB_GID:-100}"
     ports:
       - "{{ cookiecutter.jupyter_port }}:8888"
     volumes:
