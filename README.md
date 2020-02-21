@@ -65,13 +65,11 @@ If you want to be able to access directories add them to the docker-compose.yml 
 
 ### GDAL
 
-Add `gdal` to your prerequisites.txt file to your DockerFile:
+Add `gdal` to your prerequisites.txt file and then add the lines below to your DockerFile before the call to `pip`:
 
 ```editorconfig
-
 USER root
 RUN apt-get -y update
-#RUN add-apt-repository ppa:ubuntugis/ppa
 RUN apt-get install -y vim \
     gdal-bin \
     libgdal-dev
@@ -79,5 +77,5 @@ USER jovyan
 
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal \
     C_INCLUDE_PATH=/usr/include/gdal
-
+```
 
