@@ -7,7 +7,7 @@ To use, ensure you have `cookiecutter` installed and then run:
 cookiecutter https://github.com/devclinton/cookiecutter-docker-jupyter
 ```
 
-This will prompt initialization choices and then create a directory with the Dockerfile, start.sh and stop.sh.
+This will prompt initialization choices and then create a directory REPO_NAME (you choose during cookiecutter) that contains the Dockerfile, start.sh and stop.sh.  
 
 List your requirements to requirements.txt:
  
