@@ -36,12 +36,18 @@ Then access the e.g. JupyterLab by opening `http://HOSTNAME:PORT` (ex. http://12
 
 ## Prerequisites
 
+### cookiecutter
 Install cookiecutter (with virtualenv)
 ```bash
 python3 -m venv ~/.venvs/cookiecutter
 source ~/.venvs/cookiecutter/bin/activate
 pip install cookiecutter
 ```
+
+### docker
+
+If you are using a Windows machine you can setup WSL (Ubuntu on Windows) with  Docker following [this tutorial](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly). 
+This allows your Windows workflow to follow what you would do on a linux box.
 
 ## Troubleshooting
 
@@ -53,6 +59,14 @@ pip install -r requirements.txt --index-url https://packages.idmod.org/api/pypi/
 ```
 
 Note that you can also set the index-url during setup and the above line includes the default pip server for packages not on the IDM server.
+
+### dtk-tools
+
+Ensure that you are using the IDM pip prod server and in your Dockerfile build from a release using python 3.6. For example:
+
+```editorconfig
+FROM jupyter/scipy-notebook:9f03c3e86b22
+```
 
 ### Mounting directories
 If you want to be able to access directories add them to the docker-compose.yml file:
